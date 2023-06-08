@@ -6,11 +6,14 @@ export default {
   ],
   theme: {
     extend: {
-      colors:{
-        'primary':"#6a1b9a",
-        'secondary':"#e46c5b",
-        'third':"#9A348E ",
-        'fourth':"#0D0628 ",
+      backgroundImage: {
+       
+      },
+      colors: {
+        'primary': "#6a1b9a",
+        'secondary': "#e46c5b",
+        'third': "#9A348E ",
+        'fourth': "#0D0628 ",
       }
     },
   },
