@@ -43,7 +43,7 @@ const NavBar = () => {
             <div className="mb-3">
                 <ul className="menu menu-sm  mt-3 p-2  flex flex-row">
                     <li>
-                        <Link>Login</Link>
+                        <Link to="/login">Login</Link>
                     </li>
                     <li>
                         <Link>Log Out</Link>

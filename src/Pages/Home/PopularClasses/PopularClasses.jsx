@@ -10,7 +10,9 @@ import popular6 from '../../../assets/popular/c6.jpeg'
 const PopularClasses = () => {
     return (
         <div>
-          <SectionHeader></SectionHeader>
+          <SectionHeader header={'Popular Classes'}>
+
+          </SectionHeader>
             <div className='grid grid-cols-3 gap-10 p-10'>
 
                 <div className="card w-96 glass">
