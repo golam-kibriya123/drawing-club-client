@@ -20,7 +20,7 @@ const NavBar = () => {
 
 
     return (
-        <div className="navbar text-primary mb-10">
+        <div className="navbar text-primary sticky top-0 z-50 bg-white bg-opacity-70">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -41,17 +41,17 @@ const NavBar = () => {
                 </ul>
             </div>
             <div className="mb-3">
-            <ul className="menu menu-sm  mt-3 p-2  flex flex-row">
-                <li>
-                    <Link>Login</Link>
-                </li>
-                <li>
-                    <Link>Log Out</Link>
-                </li>
-                <li>
-                    <img src="" alt="rtg" className="rounded-full border border-secondary" />
-                </li>
-            </ul>
+                <ul className="menu menu-sm  mt-3 p-2  flex flex-row">
+                    <li>
+                        <Link>Login</Link>
+                    </li>
+                    <li>
+                        <Link>Log Out</Link>
+                    </li>
+                    <li>
+                        <img src="" alt="rtg" className="rounded-full border border-secondary" />
+                    </li>
+                </ul>
             </div>
 
         </div>

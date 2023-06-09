@@ -1,14 +1,12 @@
+import HomeSlider from "../../../Components/HomeSlider/HomeSlider";
 import PopularClasses from "../PopularClasses/PopularClasses";
 import PopularInstructors from "../PopularInstructors/PopularInstructors";
-import SliderBanner from "../SliderBanner/SliderBanner";
 
 const Home = () => {
     return (
         <div>
-            <div>
-                Home
-            </div>
-            <SliderBanner></SliderBanner>
+       
+            <HomeSlider></HomeSlider>
             <PopularClasses></PopularClasses>
             <PopularInstructors></PopularInstructors>
         </div>
