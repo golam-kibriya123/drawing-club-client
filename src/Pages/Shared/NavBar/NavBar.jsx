@@ -14,6 +14,12 @@ const NavBar = () => {
         <li>
             <Link to='/dashboard'>Dashboard</Link>
         </li>
+        <li>
+            <Link to="/login">Login</Link>
+        </li>
+        <li>
+            <Link>Log Out</Link>
+        </li>
 
 
     </>
@@ -21,7 +27,7 @@ const NavBar = () => {
 
     return (
         <div className="navbar text-primary sticky top-0 z-50 bg-white bg-opacity-70 border-b border-primary">
-            <div className="navbar-start">
+            <div className="navbar-start w-full ">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
@@ -30,7 +36,7 @@ const NavBar = () => {
                         {NavItem}
                     </ul>
                 </div>
-                <Link className="text-xl text-primary relative font-bold" to={'/'}>
+                <Link className="text-xl text-primary relative font-bold " to={'/'}>
                     Drawing Club
                     <img src={underLine} alt="" className=" absolute -bottom-2 w-[90%]" />
                 </Link>
@@ -42,12 +48,7 @@ const NavBar = () => {
             </div>
             <div className="mb-3">
                 <ul className="menu menu-sm  mt-3 p-2  flex flex-row">
-                    <li>
-                        <Link to="/login">Login</Link>
-                    </li>
-                    <li>
-                        <Link>Log Out</Link>
-                    </li>
+
                     <li>
                         <img src="" alt="rtg" className="rounded-full border border-secondary" />
                     </li>
