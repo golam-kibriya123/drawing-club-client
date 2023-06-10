@@ -52,10 +52,10 @@ const Register = () => {
                         </div>
                         <div className="form-control mt-6">
                             <button className="btn btn-primary border border-primary bg-opacity-0 hover:text-white text-primary">Submit</button>
-                            <p className='relative mx-auto'>or
+                            <div className='relative mx-auto'>or
                                 <div className='  border border-primary absolute top-5 left-5 w-10'> </div>
                                 <div className='  border border-primary absolute top-5 right-5 w-10'> </div>
-                            </p>
+                            </div>
                             <BsGoogle className='text-3xl text-primary mx-auto my-5 cursor-pointer' />
                         </div>
 
