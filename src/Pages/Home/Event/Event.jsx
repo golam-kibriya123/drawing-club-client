@@ -17,7 +17,7 @@ const Event = () => {
         <div className=''>
             <SectionHeader header={'Upcoming Event'}></SectionHeader>
 
-            <div style={{ backgroundImage: `url('${eventBg}')` }} className='p-10 bg-no-repeat bg-fixed '>
+            <div style={{ backgroundImage: `url('${eventBg}')` }} className='p-10 bg-no-repeat bg-fixed  '>
                 <Swiper
                     slidesPerView={1}
                     spaceBetween={10}
@@ -44,7 +44,7 @@ const Event = () => {
 
 
                     <SwiperSlide>
-                        <div className="card w-96  shadow-xl   bg-cover  bg-center" style={{ backgroundImage: `url('https://www.freejupiter.com/wp-content/uploads/2020/06/Why-Art-and-Creativity-Are-Important-2.jpg')` }}>
+                        <div className="card w-96  shadow-xl   bg-cover  bg-center " style={{ backgroundImage: `url('https://www.freejupiter.com/wp-content/uploads/2020/06/Why-Art-and-Creativity-Are-Important-2.jpg')` }}>
 
                             <div className="card-body rounded-xl bg-primary h-full py-16 bg-opacity-40 text-white">
                                 <h2 className="card-title">Shoes!</h2>
