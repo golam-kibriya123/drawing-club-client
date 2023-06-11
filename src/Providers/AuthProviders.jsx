@@ -56,7 +56,8 @@ const AuthProvider = ({ children }) => {
         createUserWithMailAndPass,
         loginEmailAndPass,
         googleLogin,
-        logOut
+        logOut,
+        user
     }
     return (
         <AuthContext.Provider value={info}>
