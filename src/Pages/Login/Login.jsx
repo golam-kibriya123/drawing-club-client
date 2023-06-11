@@ -4,12 +4,13 @@ import { BsFillEyeFill, BsFillEyeSlashFill, BsGoogle } from 'react-icons/bs'
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Providers/AuthProviders';
 import Swal from 'sweetalert2';
+import { Helmet } from 'react-helmet-async';
 const Login = () => {
     const [passType, setPassType] = useState(true);
     const passTypeControl = () => {
         setPassType(!passType)
     }
-    const { loginEmailAndPass } = useContext(AuthContext)
+    const { loginEmailAndPass, googleLogin } = useContext(AuthContext)
     const handelLogin = event => {
         event.preventDefault();
         const form = event.target;
@@ -52,6 +53,9 @@ const Login = () => {
 
 
         <div className="hero min-h-screen bg-base-200" style={{ backgroundImage: `url('${loginBg}')` }}>
+            <Helmet>
+                <title>Drawing Club | Login</title>
+            </Helmet>
             <div className="hero-content  md:w-[30%] w-[90%] ">
 
                 <div className=" w-full shadow-2xl  border border-primary h-full ">
@@ -81,7 +85,7 @@ const Login = () => {
                                 <div className='  border border-primary absolute top-5 left-5 w-10'> </div>
                                 <div className='  border border-primary absolute top-5 right-5 w-10'> </div>
                             </div>
-                            <BsGoogle className='text-3xl text-primary mx-auto my-5 cursor-pointer' />
+                            <BsGoogle className='text-3xl text-primary mx-auto my-5 cursor-pointer' onClick={googleLogin} />
                         </div>
                         <Link to={'/register'} className='text-primary mx-auto hover:text-purple-600'>New here? go to register</Link>
                     </form>
