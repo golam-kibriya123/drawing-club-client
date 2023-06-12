@@ -27,6 +27,7 @@ const Login = () => {
                     timer: 900
                 })
                 console.log(user)
+                event.target.reset()
             })
             .catch((error) => {
                 const errorMessage = error.message;
@@ -85,7 +86,7 @@ const Login = () => {
                                 <div className='  border border-primary absolute top-5 left-5 w-10'> </div>
                                 <div className='  border border-primary absolute top-5 right-5 w-10'> </div>
                             </div>
-                            <BsGoogle className='text-3xl text-primary mx-auto my-5 cursor-pointer' onClick={googleLogin} />
+                            <BsGoogle className='text-3xl text-purple-500  hover:text-primary mx-auto my-5 cursor-pointer' onClick={googleLogin} />
                         </div>
                         <Link to={'/register'} className='text-primary mx-auto hover:text-purple-600'>New here? go to register</Link>
                     </form>

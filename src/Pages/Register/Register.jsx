@@ -31,23 +31,24 @@ const Register = () => {
         const pass = from.password.value;
         const photo = from.photo.value;
         const name = from.name.value;
+        console.log(name, email, pass, photo);
         createUserWithMailAndPass(email, pass)
             .then((userCredential) => {
-                update(name, photo);
-
+                update(name, photo)
                 Swal.fire({
                     position: 'center',
                     icon: 'success',
                     title: 'Login Successfully',
                     showConfirmButton: false,
                     timer: 900
-                })
-                    ;
-                console.log(userCredential)
+                });
+                event.target.reset()
+                console.log(userCredential);
             })
             .catch((error) => {
 
                 const errorMessage = error.message;
+                console.log(error)
                 Swal.fire({
                     position: 'center',
                     icon: 'error',
@@ -79,7 +80,7 @@ const Register = () => {
                             <label className="label">
                                 <span className="label-text">Email</span>
                             </label>
-                            <input type="text" placeholder="email" className="input input-bordered" />
+                            <input type="text" placeholder="email" className="input input-bordered" name='email' />
                         </div>
 
                         <div className="form-control relative ">
@@ -111,7 +112,7 @@ const Register = () => {
                                 <div className='  border border-primary absolute top-5 left-5 w-10'> </div>
                                 <div className='  border border-primary absolute top-5 right-5 w-10'> </div>
                             </div>
-                            <BsGoogle className='text-3xl text-primary mx-auto my-5 cursor-pointer' onClick={googleLogin} />
+                            <BsGoogle className='text-3xl hover:text-primary text-purple-500 mx-auto my-5 cursor-pointer' onClick={googleLogin} />
                         </div>
 
 
