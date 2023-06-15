@@ -2,6 +2,7 @@ import SectionHeader from "../../Components/SectionHeader";
 import AOS from 'aos';
 import 'aos/dist/aos.css'; // You can also use <link> for styles
 import { useEffect } from "react";
+import { Helmet } from "react-helmet-async";
 
 const Classes = () => {
     useEffect(() => {
@@ -10,8 +11,12 @@ const Classes = () => {
     }, [])
     return (
         <div>
+               <Helmet>
+                <title>Drawing club | classes</title>
+            </Helmet>
             <SectionHeader header={'Classes'}>
             </SectionHeader>
+            
             <div className="p-10 space-y-8">
 
                 <div className="card card-side bg-red-500 bg-opacity-40  shadow-xl border border-primary flex flex-col md:flex-row "
