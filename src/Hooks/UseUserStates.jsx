@@ -16,7 +16,6 @@ const UseUserStates = () => {
     if (data) {
         userState = data[0]?.role;
     }
-    console.log(data)
     return [userState]
 };
 

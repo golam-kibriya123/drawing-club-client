@@ -1,12 +1,13 @@
 import { useContext, useState } from 'react';
 import loginBg from '../../assets/auth/login.jpg';
 import { BsFillEyeFill, BsFillEyeSlashFill, BsGoogle } from 'react-icons/bs'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Providers/AuthProviders';
 import Swal from 'sweetalert2';
 import { Helmet } from 'react-helmet-async';
 import { updateProfile } from 'firebase/auth';
 const Register = () => {
+    const navigate = useNavigate();
     const [passType, setPassType] = useState(true);
     const { createUserWithMailAndPass, googleLogin, auth } = useContext(AuthContext);
 
@@ -52,6 +53,7 @@ const Register = () => {
                             showConfirmButton: false,
                             timer: 900
                         });
+                        navigate('/')
                     })
 
                 event.target.reset()
