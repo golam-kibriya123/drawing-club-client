@@ -29,7 +29,6 @@ const NavBar = () => {
 
 
     </>;
-    console.log(user)
 
     return (
         <div className="navbar text-primary sticky top-0 z-50 bg-white bg-opacity-70 border-b border-primary">

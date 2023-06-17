@@ -1,11 +1,16 @@
 import { useContext, useState } from 'react';
 import loginBg from '../../assets/auth/login.jpg';
 import { BsFillEyeFill, BsFillEyeSlashFill, BsGoogle } from 'react-icons/bs'
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Providers/AuthProviders';
 import Swal from 'sweetalert2';
 import { Helmet } from 'react-helmet-async';
 const Login = () => {
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/';
+    console.log(location);
+    console.log(from)
+    const navigate = useNavigate();
     const [passType, setPassType] = useState(true);
     const passTypeControl = () => {
         setPassType(!passType)
@@ -17,8 +22,8 @@ const Login = () => {
         const email = form.email.value;
         const pass = form.password.value;
         loginEmailAndPass(email, pass)
-            .then((userCredential) => {
-                const user = userCredential.user;
+            .then(() => {
+
                 Swal.fire({
                     position: 'center',
                     icon: 'success',
@@ -26,7 +31,7 @@ const Login = () => {
                     showConfirmButton: false,
                     timer: 900
                 })
-                console.log(user)
+                navigate(from)
                 event.target.reset()
             })
             .catch((error) => {
