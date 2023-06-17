@@ -8,23 +8,24 @@ import { AuthContext } from "../../Providers/AuthProviders";
 const Dashboard = () => {
   const [userState] = UseUserStates();
   const { user } = useContext(AuthContext);
+  console.log(user)
   console.log(userState)
   const [open, setOpen] = useState(false);
   const adminItem = <>
-    <li><Link to={'/'}>User Home</Link ></li>
+    <li><Link to={''}>User Home</Link ></li>
 
     <li><Link to={'manageclasses'}>Manage Classes</Link></li>
     <li><Link to={'manageuser'}>Manage Users</Link></li>
   </>;
   const studentItem = <>
-    <li><Link to={'/'}>User Home</Link ></li>
+    <li><Link to={''}>User Home</Link ></li>
 
     <li> <Link to={'selectedclasses'}>My Selected Classes </Link></li>
     <li> <Link to={'enrolled'}>My Enrolled Classes</Link></li>
     <li> <Link to={'payment'}>Payment</Link></li>
     <li> <Link to={'paymenthistory'}>Payment History</Link></li></>
   const instructorItem = <>
-    <li><Link to={'/'}>User Home</Link ></li>
+    <li><Link to={''}>User Home</Link ></li>
     <li><Link to={'addclass'}>Add Class</Link> </li>
     <li><Link to={'myclass'}>My Class</Link> </li>
   </>
