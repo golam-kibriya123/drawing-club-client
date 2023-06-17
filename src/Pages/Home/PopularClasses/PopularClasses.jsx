@@ -1,81 +1,43 @@
+import { useEffect, useState } from 'react'
 import SectionHeader from '../../../Components/SectionHeader'
-import popular1 from '../../../assets/popular/c1.jpeg'
-import popular2 from '../../../assets/popular/c2.jpeg'
-import popular3 from '../../../assets/popular/c3.jpeg'
-import popular4 from '../../../assets/popular/c4.jpeg'
-import popular5 from '../../../assets/popular/c5.jpeg'
-import popular6 from '../../../assets/popular/c6.jpeg'
+
 
 
 const PopularClasses = () => {
+    const [classes, setClasses] = useState([]);
+    useEffect(() => {
+        fetch(`https://draing-club-server.vercel.app/classes`)
+            .then(res => res.json())
+            .then(data => setClasses(data))
+    }, [])
     return (
         <div>
-         
+
             <SectionHeader header={'Popular Classes'}>
 
             </SectionHeader>
-            <div className='grid grid-cols-3 gap-10 p-10'>
+            <div className='grid  md:grid-cols-2 lg:grid-cols-3 gap-10 p-10'>
+                {classes.slice(0, 6).map(c => {
+                    const { _id, class_name, instructor_name, price, seat, class_photo } = c;
+                    return (<div className="card  glass" key={_id}>
+                        <figure className='h-1/2'>
+                            <img src={class_photo} alt="car!" className='w-full h-full border-b-2 border-primary ' /></figure>
+                        <div className="card-body">
+                            <h2 className="card-title">{class_name}</h2>
 
-                <div className="card w-96 glass">
-                    <figure><img src={popular1} alt="car!" /></figure>
-                    <div className="card-body">
-                        <h2 className="card-title">Life hack</h2>
-                        <p>How to park your car at your garage?</p>
-                        <div className="card-actions justify-end">
-                            <button className="btn btn-primary">Learn now!</button>
+                            <div>
+                                <p>Instructor:{instructor_name}</p>
+                                <p>Instructor:{price}</p>
+
+                            </div>
+                            <p>Instructor:{seat}</p>
+                            <div className="card-actions justify-end">
+                                <button className="btn btn-primary">Learn now!</button>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <div className="card w-96 glass">
-                    <figure><img src={popular2} alt="car!" /></figure>
-                    <div className="card-body">
-                        <h2 className="card-title">Life hack</h2>
-                        <p>How to park your car at your garage?</p>
-                        <div className="card-actions justify-end">
-                            <button className="btn btn-primary">Learn now!</button>
-                        </div>
-                    </div>
-                </div>
-                <div className="card w-96 glass">
-                    <figure><img src={popular3} /></figure>
-                    <div className="card-body">
-                        <h2 className="card-title">Life hack</h2>
-                        <p>How to park your car at your garage?</p>
-                        <div className="card-actions justify-end">
-                            <button className="btn btn-primary">Learn now!</button>
-                        </div>
-                    </div>
-                </div>
-                <div className="card w-96 glass">
-                    <figure><img src={popular4} alt="car!" /></figure>
-                    <div className="card-body">
-                        <h2 className="card-title">Life hack</h2>
-                        <p>How to park your car at your garage?</p>
-                        <div className="card-actions justify-end">
-                            <button className="btn btn-primary">Learn now!</button>
-                        </div>
-                    </div>
-                </div>
-                <div className="card w-96 glass">
-                    <figure><img src={popular5} alt="car!" /></figure>
-                    <div className="card-body">
-                        <h2 className="card-title">Life hack</h2>
-                        <p>How to park your car at your garage?</p>
-                        <div className="card-actions justify-end">
-                            <button className="btn btn-primary">Learn now!</button>
-                        </div>
-                    </div>
-                </div>
-                <div className="card w-96 glass">
-                    <figure><img src={popular6} alt="car!" /></figure>
-                    <div className="card-body">
-                        <h2 className="card-title">Life hack</h2>
-                        <p>How to park your car at your garage?</p>
-                        <div className="card-actions justify-end">
-                            <button className="btn btn-primary">Learn now!</button>
-                        </div>
-                    </div>
-                </div>
+                    </div>)
+                })}
+
 
             </div>
         </div>

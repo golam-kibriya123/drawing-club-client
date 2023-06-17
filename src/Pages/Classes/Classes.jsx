@@ -17,7 +17,7 @@ const Classes = () => {
     const { user } = useContext(AuthContext);
     const [classes, setClasses] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/classes`)
+        fetch(`https://draing-club-server.vercel.app/classes`)
             .then(res => res.json())
             .then(data => setClasses(data))
     }, []);
@@ -37,7 +37,7 @@ const Classes = () => {
                     const handelSelect = () => {
                         if (user) {
 
-                            fetch(`http://localhost:5000/classes/selected`, {
+                            fetch(`https://draing-club-server.vercel.app/classes/selected`, {
                                 method: "POST",
                                 headers: {
                                     'content-type': 'application/json'
@@ -47,16 +47,16 @@ const Classes = () => {
                             })
                                 .then(res => res.json())
                                 .then(data => {
-                                    if(data.acknowledged){
-                                         Swal.fire({
-                                        position: 'center',
-                                        icon: 'success',
-                                        title: 'Selected Successfully',
-                                        showConfirmButton: false,
-                                        timer: 900
-                                    })  
+                                    if (data.acknowledged) {
+                                        Swal.fire({
+                                            position: 'center',
+                                            icon: 'success',
+                                            title: 'Selected Successfully',
+                                            showConfirmButton: false,
+                                            timer: 900
+                                        })
                                     }
-                                                             
+
                                 })
 
                         }

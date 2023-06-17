@@ -46,7 +46,7 @@ const AuthProvider = ({ children }) => {
             setUser(currentUser);
             // get and set token/jwt
             if (currentUser) {
-                axios.post('http://localhost:5000/jwt', {
+                axios.post('https://draing-club-server.vercel.app:5000/jwt', {
                     email: currentUser?.email
                 })
                     .then(data => {

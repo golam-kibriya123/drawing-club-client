@@ -36,7 +36,7 @@ const Register = () => {
         createUserWithMailAndPass(email, pass)
             .then((userCredential) => {
                 update(name, photo);
-                fetch(`http://localhost:5000/users`, {
+                fetch(`https://draing-club-server.vercel.app/users`, {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'
@@ -101,8 +101,8 @@ const Register = () => {
 
                             </label>
                             <input type={`${passType ? 'password' : 'text'}`} placeholder="password" className="input input-bordered" name='password' required />
-                            <BsFillEyeSlashFill className={`absolute bottom-10 right-2 text-2xl cursor-pointer ${passType ? '' : 'hidden'}`} onClick={passTypeControl} />
-                            <BsFillEyeFill className={`absolute bottom-10 right-2 text-2xl cursor-pointer  ${passType ? 'hidden' : ''}`} onClick={passTypeControl} />
+                            <BsFillEyeSlashFill className={`absolute bottom-3 right-2 text-2xl cursor-pointer ${passType ? '' : 'hidden'}`} onClick={passTypeControl} />
+                            <BsFillEyeFill className={`absolute bottom-3 right-2 text-2xl cursor-pointer  ${passType ? 'hidden' : ''}`} onClick={passTypeControl} />
 
                         </div>
 

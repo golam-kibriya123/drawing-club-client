@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 const Instructors = () => {
     const [instructors, setInstructors] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/instructor`)
+        fetch(`https://draing-club-server.vercel.app/instructor`)
             .then(res => res.json())
             .then(data => setInstructors(data))
     }, [])
@@ -20,14 +20,13 @@ const Instructors = () => {
 
                 {instructors.map(instructor => {
 
-                    console.log(instructor)
                     return (
                         <div className="card card-side shadow-xl border border-primary p-5 text-white bg-primary bg-opacity-75" key={instructor._id}>
 
                             <figure>
                                 <div className="avatar ">
                                     <div className="w-24 mask mask-hexagon" >
-                                        <img src={instructor.photo} alt="Movie"  className=""/>
+                                        <img src={instructor.photo} alt="Movie" className="" />
                                     </div>
                                 </div>
 

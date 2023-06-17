@@ -9,7 +9,7 @@ const ManageClasses = () => {
     });
 
     const handelState = (state, id) => {
-        fetch(`http://localhost:5000/classes/state/${id}`, {
+        fetch(`https://draing-club-server.vercel.app/classes/state/${id}`, {
             method: "PATCH",
             headers: {
                 "content-type": "application/json"

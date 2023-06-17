@@ -8,14 +8,15 @@ const UseUserStates = () => {
     const { data } = useQuery({
         queryKey: ['state', email],
         queryFn: async () => {
-            const response = await fetch(`http://localhost:5000/users/email?email=${email}`)
+            const response = await fetch(`https://draing-club-server.vercel.app/users/email?email=${email}`)
             return response.json();
         }
     });
-    let userState=''
+    let userState = ''
     if (data) {
         userState = data[0]?.role;
     }
+    console.log(data)
     return [userState]
 };
 
