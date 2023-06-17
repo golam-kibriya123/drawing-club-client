@@ -1,13 +1,21 @@
 import { Link } from "react-router-dom";
 import SectionHeader from "../../Components/SectionHeader";
+import { useEffect, useState } from "react";
 
 const Instructors = () => {
+    const [instructors, setInstructors] = useState([]);
+    useEffect(() => {
+        fetch(`http://localhost:5000/users`)
+        .then(res=>res.json())
+        .then(data=>setInstructors(data))
+    }, [])
     return (
         <div>
             <SectionHeader header={'Instructors'}>
 
             </SectionHeader>
-            <div className="grid grid-cols-3 p-10 gap-10">
+
+            <div className="grid mg:grid-cols-2 lg:grid-cols-3 p-10 gap-10">
 
 
 

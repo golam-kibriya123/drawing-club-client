@@ -1,6 +1,10 @@
 import { Link } from "react-router-dom";
 import underLine from "../../../assets/Logo/PNG/under-line.png"
+import { useContext } from "react";
+import { AuthContext } from "../../../Providers/AuthProviders";
 const NavBar = () => {
+    const { user, logOut } = useContext(AuthContext)
+
     const NavItem = <>
         <li>
             <Link to={'/'}>Home</Link>
@@ -14,16 +18,18 @@ const NavBar = () => {
         <li>
             <Link to='dashboard'>Dashboard</Link>
         </li>
-        <li>
+        {
+            user?   <li onClick={logOut}>
+            <Link>Log Out</Link>
+        </li>:<li>
             <Link to="/login">Login</Link>
         </li>
-        <li>
-            <Link>Log Out</Link>
-        </li>
+        }
+     
 
 
-    </>
-
+    </>;
+    console.log(user)
 
     return (
         <div className="navbar text-primary sticky top-0 z-50 bg-white bg-opacity-70 border-b border-primary">
@@ -47,10 +53,16 @@ const NavBar = () => {
                 </ul>
             </div>
             <div className="mb-3">
-                <ul className="menu menu-sm  mt-3 p-2  flex flex-row">
-
+                <ul className="    ">
                     <li>
-                        <img src="" alt="rtg" className="rounded-full border border-secondary" />
+
+                        {
+                            user ? <img src={user?.photoURL} alt="rtg" className="rounded-full border border-secondary h-12 w-10 lg:w-20" /> : <div className="avatar placeholder">
+                                <div className="bg-neutral-focus text-neutral-content rounded-full  h-12 w-10 lg:w-12">
+                                    <span className="text-xs text-white">No User</span>
+                                </div>
+                            </div>
+                        }
                     </li>
                 </ul>
             </div>

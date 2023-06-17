@@ -31,17 +31,29 @@ const Register = () => {
         const pass = from.password.value;
         const photo = from.photo.value;
         const name = from.name.value;
-        console.log(name, email, pass, photo);
+        const role = 'student';
+        const newUser = { name, email, pass, photo, role };
         createUserWithMailAndPass(email, pass)
             .then((userCredential) => {
-                update(name, photo)
-                Swal.fire({
-                    position: 'center',
-                    icon: 'success',
-                    title: 'Login Successfully',
-                    showConfirmButton: false,
-                    timer: 900
-                });
+                update(name, photo);
+                fetch(`http://localhost:5000/users`, {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(newUser)
+                })
+                    .then(res => res.json())
+                    .then(() => {
+                        Swal.fire({
+                            position: 'center',
+                            icon: 'success',
+                            title: 'Login Successfully',
+                            showConfirmButton: false,
+                            timer: 900
+                        });
+                    })
+
                 event.target.reset()
                 console.log(userCredential);
             })
@@ -73,14 +85,14 @@ const Register = () => {
                             <label className="label">
                                 <span className="label-text">Name</span>
                             </label>
-                            <input type="text" placeholder="Your Name" name='name' className="input input-bordered" />
+                            <input type="text" placeholder="Your Name" name='name' className="input input-bordered" required />
                         </div>
 
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Email</span>
                             </label>
-                            <input type="text" placeholder="email" className="input input-bordered" name='email' />
+                            <input type="text" placeholder="email" className="input input-bordered" name='email' required />
                         </div>
 
                         <div className="form-control relative ">
@@ -88,7 +100,7 @@ const Register = () => {
                                 <span className="label-text">Password</span>
 
                             </label>
-                            <input type={`${passType ? 'password' : 'text'}`} placeholder="password" className="input input-bordered" name='password' />
+                            <input type={`${passType ? 'password' : 'text'}`} placeholder="password" className="input input-bordered" name='password' required />
                             <BsFillEyeSlashFill className={`absolute bottom-10 right-2 text-2xl cursor-pointer ${passType ? '' : 'hidden'}`} onClick={passTypeControl} />
                             <BsFillEyeFill className={`absolute bottom-10 right-2 text-2xl cursor-pointer  ${passType ? 'hidden' : ''}`} onClick={passTypeControl} />
 

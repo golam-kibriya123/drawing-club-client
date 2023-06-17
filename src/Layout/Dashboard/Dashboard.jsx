@@ -2,10 +2,17 @@ import { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { Link, Outlet } from "react-router-dom";
 import underLine from '../../../src/assets/Logo/PNG/under-line.png'
+import UseUserStates from "../../Hooks/UseUserStates";
 
 const Dashboard = () => {
+  const [userState] = UseUserStates();
+ 
+  console.log(userState)
   const [open, setOpen] = useState(false);
-  const adminItem = <></>;
+  const adminItem = <>
+    <li><Link to={'manageclasses'}>Manage Classes</Link></li>
+    <li><Link to={'manageuser'}>Manage Users</Link></li>
+  </>;
   const studentItem = <>
     <li> <Link to={'selectedclasses'}>My Selected Classes </Link></li>
     <li> <Link to={'enrolled'}>My Enrolled Classes</Link></li>
@@ -36,7 +43,10 @@ const Dashboard = () => {
           {/* Sidebar content here */}
           <Link className="text-xl text-primary relative font-bold mb-5 hover:bg-purple-500 hover:text-primary ms-4" to={'/'}>Drawing Club   <img src={underLine} alt="" className=" absolute -bottom-3 w-[70%]" />  </Link>
           <li> <Link>User Home</Link></li>
-          {instructorItem}
+          {userState === 'admin' && adminItem}
+          {userState === 'instructor' && instructorItem}
+          {userState === 'student' && studentItem}
+
           <li className="border-t-2 mt-5"> <Link to={'/'}>Home</Link></li>
           <li> <div className="dropdown dropdown-bottom ">
             <label tabIndex={0} className="  border-0">Menu</label>
